@@ -1,0 +1,22 @@
+name: MossLuckyTuccar
+version: '${project.version}'
+main: dev.wulnrydev.mossluckytuccar.MossLuckyTuccar
+api-version: '1.20'
+author: wulnrydev
+description: Şanslı Tüccar - Oyunculara x2 kazanç sağlayan, ShopGUI+ entegreli özel tüccar sistemi.
+
+# Bağımlılıklar: Eklenti bunlar olmadan tam çalışmaz
+depend:
+  - ShopGUIPlus
+  - Vault
+
+commands:
+  sanslituccar:
+    description: Şanslı Tüccar menüsünü açar.
+    aliases: [st, luckytrader, şanslıtüccar]
+    usage: /sanslituccar [admin <reload|forcerefresh>]
+
+permissions:
+  mossluckytuccar.admin:
+    description: Şanslı Tüccar yönetici komutlarını kullanma yetkisi.
+    default: op

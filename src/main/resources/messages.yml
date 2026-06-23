@@ -1,0 +1,37 @@
+# ============================================================= #
+#                      MossLuckyTuccar                          #
+#                 Mesaj Yapılandırma Dosyası                    #
+#  Hex renk: &#RRGGBB  |  Kod renk: &a &7 vb.  |  &l kalın      #
+# ============================================================= #
+
+# Tüm mesajların başına eklenen ön ek (prefix)
+prefix: "&#15FF08&lŞanslı Tüccar &8▸"
+
+# Başarılı satış mesajı
+# Değişkenler: {prefix} {miktar} {esya} {fiyat}
+sell-success: "&r{prefix} &7Başarıyla &#ffd500{miktar}x &#00D420{esya} &7sattın ve &#ffd500{fiyat} dinar &7kazandın!"
+
+# Eşya stoğu tükendiğinde
+sell-no-stock: "&r{prefix} &7Maalesef bu eşya için tüccarın stoğu tükenmiş!"
+
+# Oyuncunun elinde/envanterinde satılacak eşya yoksa
+sell-no-item: "&r{prefix} &7Envanterinde satabileceğin bu eşyadan bulunmuyor!"
+
+# Tüccar bu eşyayı talep etmiyorsa
+sell-not-wanted: "&r{prefix} &7Şanslı Tüccar şu an bu eşyayı talep etmiyor!"
+
+# ShopGUI+ üzerinde eşyanın satış fiyatı yoksa
+sell-no-price: "&r{prefix} &7Bu eşyanın geçerli bir satış fiyatı bulunmuyor!"
+
+# Ödeme (ekonomi) işlemi başarısız olursa - eşyalar iade edilir
+sell-failed: "&r{prefix} &7İşlem tamamlanamadı, eşyaların sende kaldı. Lütfen tekrar dene!"
+
+# Yönetici komutları
+admin-reload: "&r{prefix} &7Yapılandırma dosyaları &#00D420başarıyla &7yenilendi!"
+admin-forcerefresh: "&r{prefix} &7Tüccar eşyaları ve stoğu &#00D420zorla yenilendi!"
+admin-no-permission: "&r{prefix} &7Bu komutu kullanmak için &cyetkin yok!"
+admin-usage: "&r{prefix} &7Kullanım: &#ffd500/sanslituccar admin <reload|forcerefresh>"
+
+# Genel
+only-player: "&r{prefix} &7Bu komut yalnızca oyuncular tarafından kullanılabilir!"
+trader-refreshed-broadcast: "&r{prefix} &7Şanslı Tüccar yeni eşyalar talep etmeye başladı! &#00D420/st &7ile göz at!"

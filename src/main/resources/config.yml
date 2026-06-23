@@ -1,0 +1,105 @@
+# ============================================================= #
+#                      MossLuckyTuccar                          #
+#                   Yapımcı: wulnrydev                          #
+#         Şanslı Tüccar - Ana Yapılandırma Dosyası             #
+# ============================================================= #
+
+settings:
+  # Eşyaların ve stokların yenileneceği saat (24 saat formatı, sunucu saatine göre).
+  # Örn: 18 => her gün saat 18:00'da yenilenir.
+  refresh-hour: 18
+
+  # Satıştan elde edilen paranın çarpanı.
+  # ShopGUI+ fiyatı bu sayı ile çarpılır. (2.0 = x2 kazanç)
+  multiplier: 2.0
+
+  # Her eşya için varsayılan global stok miktarı.
+  default-stock: 10000
+
+  # Tüccarın her yenilenmede havuzdan talep edeceği eşya sayısı.
+  # 0 veya havuzdaki eşya sayısından büyükse, havuzdaki TÜM eşyalar talep edilir.
+  # Her gün saat 18:00'da havuzdan rastgele bu kadar ürün seçilir.
+  trader-items-count: 3
+
+# ------------------------------------------------------------- #
+# Şanslı Tüccar'ın talep edebileceği eşya havuzu.               #
+# Her yenilenmede bu listeden rastgele eşyalar seçilir.         #
+# Geçerli bir Bukkit Material adı yazılmalıdır.                 #
+# ------------------------------------------------------------- #
+items-pool:
+  - POTATO
+  - CARROT
+  - WHEAT
+  - BEETROOT
+  - PUMPKIN
+  - MELON_SLICE
+  - SUGAR_CANE
+  - COCOA_BEANS
+  - NETHER_WART
+  - IRON_INGOT
+  - GOLD_INGOT
+  - DIAMOND
+  - EMERALD
+  - COAL
+  - REDSTONE
+  - LAPIS_LAZULI
+  - OAK_LOG
+  - COBBLESTONE
+
+# ------------------------------------------------------------- #
+# Menü (GUI) tasarımı                                            #
+# ------------------------------------------------------------- #
+menu:
+  # Menü başlığı (Hex renk desteklenir)
+  title: "&#15FF08&lŞanslı Tüccar"
+
+  # Satır sayısı (1-6 arası). Her satır 9 slottur. 4 satır = 36 slot.
+  rows: 4
+
+  # Talep edilen eşyaların yerleştirileceği slotlar.
+  # Buradaki slot sayısı kadar eşya gösterilir (3 ürün -> 3 slot: 12, 14, 16).
+  item-slots: [12, 14, 16]
+
+  # Boş slotları dolduran cam (filler) ayarı
+  filler:
+    enabled: true
+    material: GRAY_STAINED_GLASS_PANE
+    name: " "
+
+  # Yenilenme süresini gösteren bilgi eşyası (slot 10)
+  info-item:
+    enabled: true
+    slot: 10
+    material: CLOCK
+    name: "&#00D420&lBilgi"
+    # Kullanılabilir değişkenler: {refresh-hour} {time} {hours} {minutes}
+    lore:
+      - "&7Tüccar her gün saat &#ffd500{refresh-hour}:00&7'da yenilenir."
+      - ""
+      - "&7Yenilenmeye kalan süre:"
+      - "&#ffd500{time}"
+      - ""
+      - "&8» &7Stok yenilenmesine: &#ffd500{hours} saat {minutes} dakika"
+
+  # Her talep edilen eşyanın menüdeki görünümü.
+  # Eşyanın kendi materyali ikon olarak kullanılır.
+  item-display:
+    name: "&#00D420&l{item}"
+    lore:
+      - "&7Birim satış fiyatı: &#ffd500{price} dinar"
+      - "&7Kalan stok: &#ffd500{stock}"
+      - ""
+      - "&#00D420Sol Tık &7» Envanterindeki tümünü sat"
+      - "&#00D420Sağ Tık &7» 1 adet sat"
+
+  # Menünün en altındaki "Ana Menüye Dön" butonu.
+  # Tıklanınca menü kapanır ve aşağıdaki komut oyuncu adına çalıştırılır.
+  back-button:
+    enabled: true
+    slot: 31
+    material: ARROW
+    name: "&#ffd500&l◀ Ana Menü"
+    lore:
+      - "&7Ana menüye dönmek için tıkla."
+    # Tıklayınca çalışacak komut (başında / OLMADAN yazın).
+    command: "menü"
