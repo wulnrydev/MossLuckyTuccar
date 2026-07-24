@@ -1,6 +1,7 @@
 package dev.wulnrydev.mossluckytuccar.manager;
 
 import dev.wulnrydev.mossluckytuccar.MossLuckyTuccar;
+import dev.wulnrydev.mossluckytuccar.util.MaterialLang;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -120,21 +121,12 @@ public class TradeService {
     }
 
     /**
-     * Materyal adını okunabilir biçime çevirir (DIAMOND_SWORD -> Diamond Sword).
+     * Materyal adını doğrudan Türkçe karşılığına çevirir (DIAMOND -> Elmas).
+     * Sözlükte karşılığı yoksa okunabilir İngilizce ada geri düşer.
      * Hem bu serviste hem de menüde (TraderMenu) ortak kullanılır.
      */
     public static String formatMaterialName(Material material) {
-        String[] parts = material.name().toLowerCase().split("_");
-        StringBuilder builder = new StringBuilder();
-        for (String part : parts) {
-            if (part.isEmpty()) {
-                continue;
-            }
-            builder.append(Character.toUpperCase(part.charAt(0)))
-                   .append(part.substring(1))
-                   .append(' ');
-        }
-        return builder.toString().trim();
+        return MaterialLang.translate(material);
     }
 
     /**
